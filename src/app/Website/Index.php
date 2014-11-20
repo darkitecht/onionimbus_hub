@@ -1,5 +1,5 @@
 <?php
-namespace Onionimbus\Hub\Api;
+namespace Onionimbus\Hub\Website;
 
 class Index extends \Onionimbus\Hub\Wire\Controller
 {
