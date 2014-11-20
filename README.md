@@ -22,3 +22,5 @@ This code has N purposes:
   * `php5-mcrypt`
   * `php5-json` or `php5-common` depending on your distro
 * Latest OpenSSL (if you don't update this, my heart won't bleed for you)
+
+See also: [https://github.com/darkitecht/onionimbus_node](Nodes)
