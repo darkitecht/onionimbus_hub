@@ -1,7 +1,7 @@
 <?php
 namespace Onionimbus\Hub\Website;
 
-class Login extends \Onionimbus\Hub\Wire\Controller
+class Login extends \Onionimbus\System\Controller
 {
     public function index()
     {

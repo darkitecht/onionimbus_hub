@@ -1,7 +1,7 @@
 <?php
 namespace Onionimbus\Hub\Api;
 
-class Index extends \Onionimbus\Hub\Wire\Controller
+class Index extends \Onionimbus\System\Controller
 {
     public function index()
     {

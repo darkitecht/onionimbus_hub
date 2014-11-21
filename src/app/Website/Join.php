@@ -1,7 +1,7 @@
 <?php
 namespace Onionimbus\Hub\Website;
 
-class Join extends \Onionimbus\Hub\Wire\Controller
+class Join extends \Onionimbus\System\Controller
 {
     public function index()
     {
