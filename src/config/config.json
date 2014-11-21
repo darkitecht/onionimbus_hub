@@ -2,6 +2,7 @@
     "database": {
         "default": {
             "host": "localhost",
+            "database": "testdb",
             "username": "example",
             "password": "correcthorsebatterystaple"
         }

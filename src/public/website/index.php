@@ -8,13 +8,23 @@ $router = \Onionimbus\System\Router(
 );
 
 // Set anything else up here...
+if (!empty($config['database'])) {
+    $db = isset($config['database']['default'])
+        ? $config['database']
+        : \array_shift(\array_values($config['database']));
+}
 
+// Inject DB
 $router->inject(
     'database',
     new \Resonantcore\Lib\DB(
-
+        'pgsql;host='.$db['host'].';dbname='.$db['database'],
+        $db['username'],
+        $db['password']
     )
 );
+
+
 
 // Now, let's fire off the router
 
