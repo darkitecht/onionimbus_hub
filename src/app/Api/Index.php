@@ -5,6 +5,8 @@ class Index extends \Onionimbus\Hub\Wire\Controller
 {
     public function index()
     {
-        $this->view->render();
+        $this->view->render([
+            'report' => []
+        ]);
     }
 }

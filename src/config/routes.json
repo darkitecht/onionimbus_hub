@@ -1,0 +1,18 @@
+{
+    "api.onionimb.us": {
+        "namespace": "\\Onionimbus\\Hub\\Api",
+        "lazy": true,
+        "routes": {
+            // Manually add routes here;
+            // Default to lazy loading
+        }
+    },
+    "*": {
+        "namespace": "\\Onionimbus\\Hub\\Website",
+        "lazy": true,
+        "routes": {
+            // Manually add routes here;
+            // Default to lazy loading
+        }
+    }
+}

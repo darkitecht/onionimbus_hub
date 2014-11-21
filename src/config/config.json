@@ -1,0 +1,9 @@
+{
+    "database": {
+        "default": {
+            "host": "localhost",
+            "username": "example",
+            "password": "correcthorsebatterystaple"
+        }
+    }
+}
