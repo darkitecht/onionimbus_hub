@@ -1,0 +1,22 @@
+{
+    "database": {
+{% for label, dbconf in config.database %}
+        "{{ label|addslashes }}": {
+            "host": "{{ dbconf.host|addslashes }}",
+{% if dbconf.port %}
+            "port": {{ dbconf.port|abs|round }},
+{% endif %}
+            "database": "{{ dbconf.database|addslashes }}",
+            "username": "{{ dbconf.username|addslashes }}",
+            "password": "{{ dbconf.password|addslashes }}"
+        }{% if not loop.last %},{% endif %}
+{% endfor %}
+    },
+    "templates": {
+{% if config.templates.cache %}
+        "cache": "{{ config.templates.cache|addslashes }}"
+{% else %}
+        "cache": null
+{% endif %}
+    }
+}

@@ -6,5 +6,8 @@
             "username": "example",
             "password": "correcthorsebatterystaple"
         }
+    },
+    "templates": {
+        "cache": null
     }
 }

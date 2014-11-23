@@ -1,0 +1,23 @@
+{
+{% for host, hostconf in hosts %}
+    "{{ host|addslashes }}": {
+{% if hostconf.namespace %}
+        "namespace": "{{ hostconf.namespace|addslashes }}",
+{% endif %}
+        "lazy": {% if hostconf.lazy %}true{% else %}false{% endif %},
+        "routes": {
+{% for pattern, controller in hostconf.routes %}
+    {% if controller is iterable %}
+        {% if controller.length == 2 %}
+            "{{ pattern|addslashes }}": ["{{ controller[0]|e }}", "{{ controller[1]|e }}"]
+        {% elseif controller.length == 1 %}
+            "{{ pattern|addslashes }}": ["{{ controller[0]|e }}"]
+        {% endif %}
+    {% else %}
+        "{{ pattern|addslashes }}": ["{{ controller|e }}"]
+    {% endif %}{% if not loop.last %},{% endif %}
+{% endfor %}
+        }
+    }{% if not loop.last %},{% endif %}
+{% endfor %}
+}
