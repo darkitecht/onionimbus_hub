@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% if pageTitle %}{{ pageTitle }} - Onionimbus{% else %}Onionimbus{% endif %}</title>
+        <link rel="stylesheet" href="/static/onionimbus.css" type="text/css" />
+        <script src="/static/jquery.js"></script>
+        {% block extra_js %}{% endblock %}
+        {% block extra_css %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <nav>{% block nav %}
+                {% if _SESSION.userid %}
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/logout/">Logout</a></li>
+                    </ul>
+                {% else %}
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/login/">Login</a></li>
+                    <li><a href="/join/">Join</a></li>
+                </ul>
+                {% endif %}
+            {% endblock %}</nav>
+        </header>
+        <div id="main">
+            {% block main %}
+                <h1>Placeholder</h1>
+                <p>
+                    This template has not been defined yet&hellip;
+                </p>
+            {% endblock %}
+        </div>
+        <footer>
+            Onionimbus is Public Domain Software. Fork us on <a href="https://github.com/darkitecht/onionimbus_system">GitHub.</a>
+        </footer>
+    </body>
+</html>

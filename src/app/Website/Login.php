@@ -17,12 +17,16 @@ class Login extends \Onionimbus\System\Controller
 
     protected function _process()
     {
-        $user = $this->db->single("SELECT * FROM users WHERE username = ?", [$_POST['username']]);
+        // You will notice that we do not allow SQLi here. Unless you have PDO 0day
+        $user = $this->db->col("SELECT * FROM users WHERE username = ?", $_POST['username']);
+        
+        // Many people would call this a "user enumeration" vulnerability. So is
+        // our registration form. Use a strong password and quit whining.
         if (empty($user)) {
-            $this->view->render(null, ['error' => 'Invalid username or password']);
+            $this->view->render(null, ['error' => 'Invalid username']);
             exit;
         } elseif (!\password_verify($_POST['password'], $user['passwordhash'])) {
-            $this->view->render(null, ['error' => 'Invalid username or password']);
+            $this->view->render(null, ['error' => 'Invalid password']);
         } else {
             // Password accepted!
             $_SESSION['userid'] = $user['userid'];
